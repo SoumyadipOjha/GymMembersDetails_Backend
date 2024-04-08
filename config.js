@@ -1,15 +1,22 @@
 const mongoose = require("mongoose");
-const connect = mongoose.connect(
-  "mongodb+srv://soumyadipojha635:Xe1m5uNMdraKHko6@cluster0.79k8aqh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-);
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI;
+
+const connect = mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Check database connected or not
 connect
   .then(() => {
     console.log("Database Connected Successfully");
   })
-  .catch(() => {
-    console.log("Database cannot be Connected");
+  .catch((error) => {
+    console.error("Database connection error:", error);
   });
 
 // Create Schema
@@ -24,7 +31,7 @@ const Loginschema = new mongoose.Schema({
   },
 });
 
-// collection part
-const collection = new mongoose.model("users", Loginschema);
+// Collection Model
+const UserModel = mongoose.model("User", Loginschema);
 
-module.exports = collection;
+module.exports = UserModel;
