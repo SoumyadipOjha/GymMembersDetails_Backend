@@ -1,45 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
 </head>
+<style>
+    body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+    }
+
+    h1 {
+        color: #FF6347; /* Red color for error */
+        font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        margin-bottom: 10px;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    p {
+        color: #404F5E;
+        font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+        font-size: 20px;
+        margin: 0;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    i {
+        color: #FF6347; /* Red color for error */
+        font-size: 100px;
+        line-height: 200px;
+        margin-left: -15px;
+        animation: shake 0.5s infinite linear;
+    }
+
+    .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+        animation: zoomIn 1s ease-out;
+    }
+
+    /* Keyframes for animations */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-10px);
+        }
+
+        50% {
+            transform: translateX(10px);
+        }
+
+        75% {
+            transform: translateX(-10px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.8);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+</style>
+
 <body>
-    <div class="container">
-        <h1>404 - Page Not Found</h1>
-        <p>Oops! The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-        <p>Please check the URL for any mistakes, or <a href="/">go back to the homepage</a>.</p>
+    <div class="card">
+        <div style="border-radius: 200px; height: 200px; width: 200px; background: #F8FAF5; margin: 0 auto;">
+            <i class="error">!</i>
+        </div>
+        <h1>Error</h1>
+        <p>Sorry, login unsuccessful.<br> Please check your credentials and try again.</p>
     </div>
 </body>
+
 </html>
